@@ -8,7 +8,7 @@ ranging from 0 to 360 degrees.
 You can define the position of the **thumb** via the `angle`, the `value`, or the `normalized_value`. 
 Note that these values are also automatically updated as the thumb is dragged.
 
-![Demo](images/demo.gif?raw=true "Demo")
+![Demo](doc/images/demo.gif?raw=true "Demo")
 
 [![Github Build Status](https://github.com/kivy-garden/flower/workflows/Garden%20flower/badge.svg)](https://github.com/kivy-garden/flower/actions)
 
@@ -28,7 +28,7 @@ The example bellow shows the difference between the unespected behavior with wro
 
 Wrong size definition             |Wrong size definition             |  Correct size definition
 :-------------------------|:-------------------------|:-------------------------
-![Correct size setting](images/wrong_width.png?raw=true "Wrong")  | ![Correct size setting](images/wrong_height.png?raw=true "Wrong")  |  ![Correct size setting](images/correct.png?raw=true "Correct")
+![Correct size setting](doc/images/wrong_width.png?raw=true "Wrong")  | ![Correct size setting](doc/images/wrong_height.png?raw=true "Wrong")  |  ![Correct size setting](doc/images/correct.png?raw=true "Correct")
 `size_hint: (None, None)` <br> `size: 250, 200` ❌	|`size_hint: (None, None)` <br> `size: 200, 250` ❌	| `size_hint: (None, None)` <br> `size: 200, 200` ✔️
 
 
@@ -69,7 +69,7 @@ The RadialSlider widget provides the essential components: *Thumb* → ●, and 
 
 But with a few lines of code, you can change its appearance as you wish. Take a look at the example below, how easy it is.
 
-![Example](images/example.gif?raw=true "Correct")
+![Example](doc/images/example.gif?raw=true "Correct")
 
 ```python
 RadialSlider:
