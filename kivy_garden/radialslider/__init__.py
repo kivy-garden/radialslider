@@ -74,7 +74,6 @@ class RadialSlider(Widget):
     :attr:`min_value` is a :class:`~kivy.properties.NumericProperty` and
     defaults to 0.'''
 
-
     def get_value(self):
         value_range = abs(self.min_value - self.max_value)
         return self.min_value + max(0, min(self.angle, 360))/360 * value_range
@@ -82,7 +81,7 @@ class RadialSlider(Widget):
     def set_value(self, value):
         self.angle = max(0, min((value + abs(self.min_value))/abs(
             self.max_value - self.min_value) * 360, 360))
-    
+
     value = AliasProperty(get_value, set_value,
                           bind=('angle', 'min_value', 'max_value'),
                           cache=True)
@@ -98,7 +97,7 @@ class RadialSlider(Widget):
 
     def set_norm_value(self, value):
         self.angle = value * 360
-    
+
     value_normalized = AliasProperty(get_norm_value, set_norm_value,
                                      bind=('value', 'min_value', 'max_value',
                                            'angle'),
@@ -122,16 +121,16 @@ class RadialSlider(Widget):
             self._track_color = Color(1, 1, 1, 1)
             self._track = SmoothLine(width=2, overdraw_width=2.5,
                                      circle=(self.center_x, self.center_y,
-                                     0.5*self.width, 0, 360, 800))
+                                             0.5*self.width, 0, 360, 800))
         with self.canvas.after:
             self._thumb_color = Color(1, 1, 1, 1)
             self._thumb = Ellipse(size=self.size, pos=self.pos)
             self._thumb_border = SmoothLine(width=1,
                                             overdraw_width=(2.5),
                                             circle=(self._thumb.pos[0],
-                                            self._thumb.pos[1],
-                                            (self.thumb_diameter/2), 0, 360,
-                                            800))
+                                                    self._thumb.pos[1],
+                                                    (self.thumb_diameter/2),
+                                                    0, 360, 800))
 
         self.bind(size=self.update_canvas, pos=self.update_canvas,
                   angle=self.update_canvas)
@@ -140,8 +139,10 @@ class RadialSlider(Widget):
         self._track_color.rgba = self.track_color
         self._track.width = self.track_thickness
 
-        track_adjustment = self.thumb_diameter if (self.track_thickness < 
-            self.thumb_diameter) else self.track_thickness
+        if (self.track_thickness < self.thumb_diameter):
+            track_adjustment = self.thumb_diameter
+        else:
+            track_adjustment = self.track_thickness
 
         min_dimension = min(self.width/2, self.height/2)
 
@@ -155,13 +156,13 @@ class RadialSlider(Widget):
         angle = 90 - max(self._start_angle, min(self.angle, self._end_angle))
         spacing = self.track_thickness - self.thumb_diameter
         spacing = 0 if spacing < 0 else spacing
-        self._thumb.pos = (self.center_x + (min_dimension - 
+        self._thumb.pos = (self.center_x + (min_dimension -
                            self.thumb_diameter) * cos(radians(angle)) -
                            (self.thumb_diameter) - spacing * (cos(radians(
-                           angle))), self.center_y + (min_dimension -
+                            angle))), self.center_y + (min_dimension -
                            (self.thumb_diameter)) * sin(radians(angle)) -
                            (self.thumb_diameter) - spacing * (sin(radians(
-                           angle))))
+                            angle))))
 
         self._thumb_border.circle = (self._thumb.pos[0] + (
             self.thumb_diameter), self._thumb.pos[1] + (self.thumb_diameter),
@@ -174,11 +175,11 @@ class RadialSlider(Widget):
             return
 
         # check if the touch is in the dragable thumb
-        thumb_boundaries = (touch.x >= self._thumb.pos[0],
-            touch.x <= self._thumb.pos[0] + self._thumb.size[0],
-            touch.y >= self._thumb.pos[1],
-            touch.y <= self._thumb.pos[1] + self._thumb.size[1])
-        if not all(thumb_boundaries):
+        thumb_limits = (touch.x >= self._thumb.pos[0],
+                        touch.x <= self._thumb.pos[0] + self._thumb.size[0],
+                        touch.y >= self._thumb.pos[1],
+                        touch.y <= self._thumb.pos[1] + self._thumb.size[1])
+        if not all(thumb_limits):
             return
 
         touch.grab(self)
@@ -194,10 +195,10 @@ class RadialSlider(Widget):
             self.angle = self.get_angle_norm(angle)
         else:
             # avoid overscrolling to 0
-            if (touch.x + 1 > self.center_x)  and self.angle > 270:
+            if (touch.x + 1 > self.center_x) and self.angle > 270:
                 self.angle = 360
             # avoid overscrolling to 360
-            elif (touch.x - 1 <= self.center_x)  and self.angle < 90:
+            elif (touch.x - 1 <= self.center_x) and self.angle < 90:
                 self.angle = 0
             else:
                 self.angle = self.get_angle_norm(angle)
