@@ -1,5 +1,4 @@
 # Changelog
 
-## [v0.1.0] - 2019-11-26
+## [v0.1.1] - 2021-08-12
  - Initial release.
- - Add the demo flower project.
