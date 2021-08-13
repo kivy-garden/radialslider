@@ -12,12 +12,12 @@ Note that these values are also automatically updated as the thumb is dragged.
 
 [![Github Build Status](https://github.com/kivy-garden/flower/workflows/Garden%20flower/badge.svg)](https://github.com/kivy-garden/flower/actions)
 
+## Install
+	pip install kivy_garden.radialslider
 
+## Tips and Considerations:
 
-___
-### Tips and Considerations:
-
-#### Widget size setting
+### Widget size setting
 
 The Radial Slider will adjust to the smallest size, between height and width.
 Setting different sizes for the width and height is not recommended, as although the visible path and thumb will adjust to the smallest size, the widget as a whole will still conform to the size you set.
@@ -62,8 +62,7 @@ size: your_width, your_height # one value must be the same as the other
 
 🟡 If the parent of the RadialSlider widget has equal width and height dimensions, eg: `size: (200, 200)`. You can use size `size_hint_x` and `size_hint_y` freely, **as long as you set the same value for both**, like: `size_hint:(0.5, 0.5 )`, `size_hint:(0.2, 0.2)`, etc.
 
----
-### Example:
+## Example:
 
 The RadialSlider widget provides the essential components: *Thumb* → ●, and *Track* → ◯.
 
