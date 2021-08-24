@@ -15,6 +15,9 @@ Note that these values are also automatically updated as the thumb is dragged.
 ## Install
 	pip install kivy_garden.radialslider
 
+## Import
+	from kivy_garden.radialslider import RadialSlider
+
 ## Tips and Considerations:
 
 ### Widget size setting
