@@ -79,7 +79,7 @@ class RadialSlider(Widget):
         return self.min_value + max(0, min(self.angle, 360))/360 * value_range
 
     def set_value(self, value):
-        self.angle = max(0, min((value + abs(self.min_value))/abs(
+        self.angle = max(0, min((value - self.min_value)/abs(
             self.max_value - self.min_value) * 360, 360))
 
     value = AliasProperty(get_value, set_value,
