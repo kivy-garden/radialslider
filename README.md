@@ -8,15 +8,16 @@ ranging from 0 to 360 degrees.
 You can define the position of the **thumb** via the `angle`, the `value`, or the `normalized_value`. 
 Note that these values are also automatically updated as the thumb is dragged.
 
-![Demo](doc/images/demo.gif?raw=true "Demo")
+![](https://raw.githubusercontent.com/kivy-garden/radialslider/develop/doc/images/demo.gif)
 
-[![Github Build Status](https://github.com/kivy-garden/flower/workflows/Garden%20flower/badge.svg)](https://github.com/kivy-garden/flower/actions)
+[![Github Build Status](https://github.com/kivy-garden/radialslider/workflows/Garden%20flower/badge.svg)](https://github.com/kivy-garden/radialslider/actions)
+[![PyPI](https://img.shields.io/pypi/v/kivy_garden.radialslider?color=blue)](https://pypi.org/project/kivy-garden.radialslider/)
 
 ## Install
-	pip install kivy_garden.radialslider
+    pip install kivy_garden.radialslider
 
 ## Import
-	from kivy_garden.radialslider import RadialSlider
+    from kivy_garden.radialslider import RadialSlider
 
 ## Tips and Considerations:
 
@@ -31,8 +32,8 @@ The example bellow shows the difference between the unespected behavior with wro
 
 Wrong size definition             |Wrong size definition             |  Correct size definition
 :-------------------------|:-------------------------|:-------------------------
-![Correct size setting](doc/images/wrong_width.png?raw=true "Wrong")  | ![Correct size setting](doc/images/wrong_height.png?raw=true "Wrong")  |  ![Correct size setting](doc/images/correct.png?raw=true "Correct")
-`size_hint: (None, None)` <br> `size: 250, 200` ❌	|`size_hint: (None, None)` <br> `size: 200, 250` ❌	| `size_hint: (None, None)` <br> `size: 200, 200` ✔️
+![](https://raw.githubusercontent.com/kivy-garden/radialslider/develop/doc/images/wrong_width.png)  | ![](https://raw.githubusercontent.com/kivy-garden/radialslider/develop/doc/images/wrong_height.png)  |  ![](https://raw.githubusercontent.com/kivy-garden/radialslider/develop/doc/images/correct.png)
+`size_hint: (None, None)` <br> `size: 250, 200` ❌   |`size_hint: (None, None)` <br> `size: 200, 250` ❌  | `size_hint: (None, None)` <br> `size: 200, 200` ✔️
 
 
 If you want to set the size based on `size_hint`, the proper way would be:
@@ -71,7 +72,7 @@ The RadialSlider widget provides the essential components: *Thumb* → ●, and 
 
 But with a few lines of code, you can change its appearance as you wish. Take a look at the example below, how easy it is.
 
-![Example](doc/images/example.gif?raw=true "Correct")
+![](https://raw.githubusercontent.com/kivy-garden/radialslider/develop/doc/images/example.gif)
 
 ```python
 RadialSlider:
@@ -87,7 +88,7 @@ RadialSlider:
             size: self.size
             pos: self.pos
     canvas:
-    	# blue line
+        # blue line
         Color:
             rgba: rgba("#3086BD")
         Line:
@@ -103,7 +104,7 @@ RadialSlider:
 ---
 ## API
 
-	angle
+    angle
 
 > Current angle used for the Radial Slider. You can use it for setting
 > the angle of the thumb in the track in range 0 - 360.
@@ -112,7 +113,7 @@ RadialSlider:
 
 <br/>
 
-	max_value
+    max_value
 
 > Maximum value allowed for the Radial Slider.
 > 
@@ -120,7 +121,7 @@ RadialSlider:
 
 <br/>
 
-	min_value
+    min_value
 
 > Minimum value allowed for the Radial Slider.
 > 
@@ -128,7 +129,7 @@ RadialSlider:
 
 <br/>
 
-	thumb_color
+    thumb_color
 
 > Color of the thumb.
 > 
@@ -136,7 +137,7 @@ RadialSlider:
 
 <br/>
 
-	thumb_diameter
+    thumb_diameter
 
 > Diameter of the thumb.
 > 
@@ -144,7 +145,7 @@ RadialSlider:
 
 <br/>
 
-	track_color
+    track_color
 
 > Color of the track.
 > 
@@ -152,7 +153,7 @@ RadialSlider:
 
 <br/>
 
-	track_thickness
+    track_thickness
 
 > Thickness of the track.
 > 
@@ -160,7 +161,7 @@ RadialSlider:
 
 <br/>
 
-	value
+    value
 
 > Normalized value inside the range (min_value - max_value). You can use
 > it for setting the value betwwen the minimum and maximum value.
@@ -169,7 +170,7 @@ RadialSlider:
 
 <br/>
 
-	value_normalized
+    value_normalized
 
 > Normalized value inside the range (min_value - max_value) to 0-1
 > range. You can also use it for setting the real value without knowing
@@ -184,21 +185,12 @@ Every push or pull request run the [GitHub Action](https://github.com/kivy-garde
 It tests the code on various OS and also generates wheels that can be released on PyPI upon a
 tag. Docs are also generated and uploaded to the repo as well as artifacts of the CI.
 
-
-TODO
--------
-
-* add the option to control the start and end angle of the RadialSlider, keeping the current behavior.
-* create a new class/widget called RadialRangeSlider, which makes range selection possible.
-
 Contributing
 --------------
 
 Check out our [contribution guide](CONTRIBUTING.md) and feel free to improve the RadialSlider flower.
 
-🔴 If you have fulfilled any of the TODO items, feel free to contribute to the community by opening a pull request.
-
-🟠 If you have a bug or an idea, create a report to help us improve or suggest an idea for this project by opening an issue
+🔴 If you have a bug or an idea, create a report to help us improve or suggest an idea for this project by opening an issue
 
 License
 ---------
